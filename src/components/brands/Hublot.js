@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import spiritOfBigBangImg from "../../images/hublot/spiritOfBigBang.png";
 import bigBangImg from "../../images/hublot/bigBang.jpg";
 import fusionImg from "../../images/hublot/fusion.png";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Hublot extends Component {
   constructor(props) {

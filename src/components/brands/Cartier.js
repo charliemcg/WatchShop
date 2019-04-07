@@ -5,7 +5,7 @@ import calibreImg from "../../images/cartier/calibre.jpg";
 import driveImg from "../../images/cartier/drive.jpg";
 import rondeImg from "../../images/cartier/ronde.png";
 import tankImg from "../../images/cartier/tank.jpg";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Cartier extends Component {
   constructor(props) {

@@ -4,7 +4,7 @@ import chronomatImg from "../../images/breitling/chronomat.jpg";
 import navitimerImg from "../../images/breitling/navitimer.jpg";
 import premierImg from "../../images/breitling/premier.jpg";
 import superoceanImg from "../../images/breitling/superocean.jpg";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Breitling extends Component {
   constructor(props) {

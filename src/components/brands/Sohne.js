@@ -4,7 +4,7 @@ import langeOneImg from "../../images/sohne/lange1.png";
 import richardImg from "../../images/sohne/richard.jpg";
 import saxoniaImg from "../../images/sohne/saxonia.jpg";
 import zeitwerkImg from "../../images/sohne/zeitwerk.jpg";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Sohne extends Component {
   constructor(props) {

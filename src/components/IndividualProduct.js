@@ -12,6 +12,13 @@ const IndividualProduct = props => {
       This is a pretty sick watch hey. Sould probably buy it.
       <br />${watch.price}
       <br />
+      <button
+        onClick={() =>
+          /*props.addToCart(item)*/ alert("Add this sucker to cart")
+        }
+      >
+        Add to cart
+      </button>
     </>
   );
 };

@@ -4,7 +4,7 @@ import calatravaImg from "../../images/patek/calatrava.jpg";
 import complicationsImg from "../../images/patek/complications.jpg";
 import grandComplicationsImg from "../../images/patek/grandComplications.jpg";
 import nautilusImg from "../../images/patek/nautilus.jpg";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Patek extends Component {
   constructor(props) {

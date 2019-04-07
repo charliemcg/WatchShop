@@ -8,7 +8,6 @@ const Watches = props => {
         to={`/indivProduct/"bloomin"`}
         style={{ textDecoration: "none", color: "#DDD" }}
         // onClick={() => props.watchToShow(item)}
-        bloominProp="differentTestProp"
       >
         <div
           key={i}

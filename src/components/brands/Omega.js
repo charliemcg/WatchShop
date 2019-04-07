@@ -3,7 +3,7 @@ import speedmasterImg from "../../images/omega/speedmaster.jpg";
 import devilleImg from "../../images/omega/deville.jpg";
 import seamasterImg from "../../images/omega/seamaster.png";
 import constellationImg from "../../images/omega/constellation.png";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Omega extends Component {
   constructor(props) {

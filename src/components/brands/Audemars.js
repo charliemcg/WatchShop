@@ -4,7 +4,7 @@ import code1159Img from "../../images/audemars/code1159.jpg";
 import conceptImg from "../../images/audemars/concept.png";
 import julesImg from "../../images/audemars/jules.jpg";
 import offshoreImg from "../../images/audemars/offshore.jpg";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Audemars extends Component {
   constructor(props) {

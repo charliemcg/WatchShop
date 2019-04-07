@@ -19,14 +19,17 @@ import "./app.css";
 import Footer from "./components/Footer";
 import IndividualProduct from "./components/IndividualProduct";
 import daytonaImg from "./images/rolex/daytona.jpg";
+import { updateBlah } from "./actions/blahActions";
+import { updateCart } from "./actions/blahActions";
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      productsInCart: [],
-      showBrands: false
-    };
+    // this.state = {
+    //   productsInCart: [],
+    //   showBrands: false
+    // };
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
   }
@@ -43,7 +46,8 @@ class App extends Component {
     if (needToAdd) {
       newArr.push(watch);
     }
-    this.setState({ productsInCart: newArr });
+    this.props.updateCart(newArr);
+    // this.setState({ productsInCart: newArr });
   };
 
   removeFromCart = watch => {
@@ -56,15 +60,18 @@ class App extends Component {
       }
     }
     newArr.splice(index, 1);
-    this.setState({ productsInCart: newArr });
+    this.props.updateCart(newArr);
+    // this.setState({ productsInCart: newArr });
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="universal">
         <BrowserRouter>
           <Navbar
-            productsInCart={this.state.productsInCart}
+            // productsInCart={this.state.productsInCart}
+            productsInCart={this.props.productsInCart}
             toggleBrands={this.toggleBrands}
           />
           <br />
@@ -168,4 +175,25 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    blahValue: state.blahValue,
+    productsInCart: state.productsInCart
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateBlah: val => {
+      dispatch(updateBlah(val));
+    },
+    updateCart: newArr => {
+      dispatch(updateCart(newArr));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

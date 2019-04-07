@@ -3,7 +3,7 @@ import overseasImg from "../../images/vacheron/overseas.jpg";
 import harmonyImg from "../../images/vacheron/harmony.jpg";
 import historiquesImg from "../../images/vacheron/historiques.jpg";
 import patrimonyImg from "../../images/vacheron/patrimony.jpg";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Vacheron extends Component {
   constructor(props) {

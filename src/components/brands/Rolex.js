@@ -7,7 +7,7 @@ import milgaussImg from "../../images/rolex/milgauss.jpg";
 import skyDwellerImg from "../../images/rolex/skyDweller.jpg";
 import submarinerImg from "../../images/rolex/submariner.jpg";
 import yachtMasterImg from "../../images/rolex/yachtMaster.png";
-import Watches from "./Watches";
+import Watches from "../Watches";
 
 export default class Rolex extends Component {
   constructor(props) {
