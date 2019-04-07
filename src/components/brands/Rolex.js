@@ -82,7 +82,7 @@ export default class Rolex extends Component {
             this.props.watchToShow(watch);
           }}
           watches={this.state.products}
-          addToCart={watch => this.props.addToCart(watch)}
+          // addToCart={watch => this.props.addToCart(watch)}
         />
       </>
     );

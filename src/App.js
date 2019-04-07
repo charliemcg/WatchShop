@@ -19,7 +19,6 @@ import "./app.css";
 import Footer from "./components/Footer";
 import IndividualProduct from "./components/IndividualProduct";
 import daytonaImg from "./images/rolex/daytona.jpg";
-import { updateBlah } from "./actions/blahActions";
 import { updateCart } from "./actions/blahActions";
 import { connect } from "react-redux";
 
@@ -35,7 +34,8 @@ class App extends Component {
   }
 
   addToCart = watch => {
-    const newArr = this.state.productsInCart;
+    // const newArr = this.state.productsInCart;
+    const newArr = this.props.productsInCart;
     let needToAdd = true;
     for (let i = 0; i < newArr.length; i++) {
       if (newArr[i] === watch) {
@@ -51,7 +51,8 @@ class App extends Component {
   };
 
   removeFromCart = watch => {
-    let newArr = this.state.productsInCart;
+    // let newArr = this.state.productsInCart;
+    let newArr = this.props.productsInCart;
     let index;
     for (let i = 0; i < newArr.length; i++) {
       if (newArr[i] === watch) {
@@ -81,7 +82,8 @@ class App extends Component {
               path="/cart"
               render={() => (
                 <Cart
-                  products={this.state.productsInCart}
+                  // products={this.state.productsInCart}
+                  products={this.props.productsInCart}
                   removeFromCart={watch => this.removeFromCart(watch)}
                 />
               )}
@@ -156,13 +158,15 @@ class App extends Component {
               path="/indivProduct/:model"
               render={() => (
                 <IndividualProduct
-                  model={{
-                    brand: "Rolex",
-                    model: "Daytona",
-                    price: 22000,
-                    image: daytonaImg,
-                    qty: 1
-                  }}
+                  // model={{
+                  //   brand: "Rolex",
+                  //   model: "Daytona",
+                  //   price: 22000,
+                  //   image: daytonaImg,
+                  //   qty: 1
+                  // }}
+                  model={this.props.selectedWatch}
+                  addToCart={watch => this.addToCart(watch)}
                 />
               )}
             />
@@ -177,16 +181,13 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    blahValue: state.blahValue,
-    productsInCart: state.productsInCart
+    productsInCart: state.productsInCart,
+    selectedWatch: state.selectedWatch
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateBlah: val => {
-      dispatch(updateBlah(val));
-    },
     updateCart: newArr => {
       dispatch(updateCart(newArr));
     }
