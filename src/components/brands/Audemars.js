@@ -56,6 +56,7 @@ export default class Audemars extends Component {
         <Watches
           watches={this.state.products}
           addToCart={watch => this.props.addToCart(watch)}
+          style={{ display: "inlineFlex" }}
         />
       </>
     );

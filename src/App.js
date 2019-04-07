@@ -5,7 +5,6 @@ import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
-import Brandbar from "./components/Brandbar";
 import Rolex from "./components/brands/Rolex";
 import Audemars from "./components/brands/Audemars";
 import Breguet from "./components/brands/Breguet";
@@ -16,6 +15,10 @@ import Omega from "./components/brands/Omega";
 import Vacheron from "./components/brands/Vacheron";
 import Sohne from "./components/brands/Sohne";
 import Patek from "./components/brands/Patek";
+import "./app.css";
+import Footer from "./components/Footer";
+import IndividualProduct from "./components/IndividualProduct";
+import daytonaImg from "./images/rolex/daytona.jpg";
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +29,6 @@ class App extends Component {
     };
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
-    this.toggleBrands = this.toggleBrands.bind(this);
   }
 
   addToCart = watch => {
@@ -57,84 +59,111 @@ class App extends Component {
     this.setState({ productsInCart: newArr });
   };
 
-  toggleBrands = () => {
-    this.setState({ showBrands: !this.state.showBrands });
-  };
-
   render() {
     return (
-      <BrowserRouter>
-        <Navbar
-          productsInCart={this.state.productsInCart}
-          toggleBrands={this.toggleBrands}
-        />
-        <br />
-        <Brandbar showBrands={this.state.showBrands} />
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route
-            path="/cart"
-            render={() => (
-              <Cart
-                products={this.state.productsInCart}
-                removeFromCart={watch => this.removeFromCart(watch)}
-              />
-            )}
+      <div className="universal">
+        <BrowserRouter>
+          <Navbar
+            productsInCart={this.state.productsInCart}
+            toggleBrands={this.toggleBrands}
           />
-          <Route path="/contact" component={Contact} />
-          <Route
-            path="/rolex"
-            render={() => <Rolex addToCart={watch => this.addToCart(watch)} />}
-          />
-          <Route
-            path="/sohne"
-            render={() => <Sohne addToCart={watch => this.addToCart(watch)} />}
-          />
-          <Route
-            path="/audemars"
-            render={() => (
-              <Audemars addToCart={watch => this.addToCart(watch)} />
-            )}
-          />
-          <Route
-            path="/breguet"
-            render={() => (
-              <Breguet addToCart={watch => this.addToCart(watch)} />
-            )}
-          />
-          <Route
-            path="/breitling"
-            render={() => (
-              <Breitling addToCart={watch => this.addToCart(watch)} />
-            )}
-          />
-          <Route
-            path="/cartier"
-            render={() => (
-              <Cartier addToCart={watch => this.addToCart(watch)} />
-            )}
-          />
-          <Route
-            path="/hublot"
-            render={() => <Hublot addToCart={watch => this.addToCart(watch)} />}
-          />
-          <Route
-            path="/omega"
-            render={() => <Omega addToCart={watch => this.addToCart(watch)} />}
-          />
-          <Route
-            path="/patek"
-            render={() => <Patek addToCart={watch => this.addToCart(watch)} />}
-          />
-          <Route
-            path="/vacheron"
-            render={() => (
-              <Vacheron addToCart={watch => this.addToCart(watch)} />
-            )}
-          />
-          <Route component={NotFound} />
-        </Switch>
-      </BrowserRouter>
+          <br />
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route
+              path="/cart"
+              render={() => (
+                <Cart
+                  products={this.state.productsInCart}
+                  removeFromCart={watch => this.removeFromCart(watch)}
+                />
+              )}
+            />
+            <Route path="/contact" component={Contact} />
+            <Route
+              path="/rolex"
+              render={() => (
+                <Rolex
+                  addToCart={watch => this.addToCart(watch)}
+                  watchToShow={watch => {
+                    console.log(watch);
+                  }}
+                />
+              )}
+            />
+            <Route
+              path="/sohne"
+              render={() => (
+                <Sohne addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/audemars"
+              render={() => (
+                <Audemars addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/breguet"
+              render={() => (
+                <Breguet addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/breitling"
+              render={() => (
+                <Breitling addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/cartier"
+              render={() => (
+                <Cartier addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/hublot"
+              render={() => (
+                <Hublot addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/omega"
+              render={() => (
+                <Omega addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/patek"
+              render={() => (
+                <Patek addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/vacheron"
+              render={() => (
+                <Vacheron addToCart={watch => this.addToCart(watch)} />
+              )}
+            />
+            <Route
+              path="/indivProduct/:model"
+              render={() => (
+                <IndividualProduct
+                  model={{
+                    brand: "Rolex",
+                    model: "Daytona",
+                    price: 22000,
+                    image: daytonaImg,
+                    qty: 1
+                  }}
+                />
+              )}
+            />
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </div>
     );
   }
 }

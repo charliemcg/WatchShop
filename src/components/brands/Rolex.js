@@ -78,6 +78,9 @@ export default class Rolex extends Component {
       <>
         <h3>Rolex</h3>
         <Watches
+          watchToShow={watch => {
+            this.props.watchToShow(watch);
+          }}
           watches={this.state.products}
           addToCart={watch => this.props.addToCart(watch)}
         />
